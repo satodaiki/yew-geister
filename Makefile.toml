@@ -1,0 +1,9 @@
+# 参考：http://www.sheshbabu.com/posts/rust-wasm-yew-single-page-application/
+[tasks.build]
+command = "wasm-pack"
+args = ["build", "--dev", "--target", "web", "--out-name", "wasm", "--out-dir", "./static"]
+watch = { ignore_pattern = "static/*" }
+
+[tasks.serve]
+command = "simple-http-server"
+args = ["-i", "./static/", "-p", "9001", "--nocache", "--try-file", "./static/index.html"]
