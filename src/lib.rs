@@ -1,9 +1,12 @@
 use wasm_bindgen::prelude::*;
-use button::Button;
 use yew::prelude::*;
-// use yew::web_sys;
+use yew_router::{prelude::*, Switch};
+// use mdc_yew::prelude::*;
 
-mod button;
+mod components;
+use components::atoms::button::Button;
+mod switch;
+use switch::AppRoute;
 
 struct Model {
     link: ComponentLink<Self>,
@@ -39,16 +42,29 @@ impl Component for Model {
     }
 
     fn view(&self) -> Html {
+        // type Anchor = RouterAnchor<AppRoute>;
+    
         html! {
-            <div>
-                <button onclick=self.link.callback(|_| Msg::AddOne)>{ "+1" }</button>
-                <p>{ self.value }</p>
-                <Button
-                    label="testlabel"
-                    value=1.0
-                    onclick=self.link.callback(|_| Msg::AddOne)
+            // <div>
+            <>
+                <RouterButton<AppRoute> route=AppRoute::Test> {"test"} </RouterButton<AppRoute>>
+                <Router<AppRoute>
+                    render = Router::render(|switch: AppRoute| {
+                        match switch {
+                            AppRoute::Index => html! {
+                                <div>{ "test router" }</div>
+                            },
+                            AppRoute::Test => html! {
+                                <Button
+                                    label="testlabel"
+                                    value="aaa"
+                                    // onclick=self.link.callback(|_| Msg::AddOne)
+                                />
+                            },
+                        }
+                    })
                 />
-            </div>
+            </>
         }
     }
 }
