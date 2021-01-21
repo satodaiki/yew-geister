@@ -1,3 +1,5 @@
+#![recursion_limit = "256"]
+
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;
 use yew_router::{prelude::*, Switch};
@@ -46,25 +48,34 @@ impl Component for Model {
     
         html! {
             // <div>
-            <>
-                <RouterButton<AppRoute> route=AppRoute::Test> {"test"} </RouterButton<AppRoute>>
-                <Router<AppRoute>
+            <div>
+                <RouterButton<AppRoute> route=AppRoute::Test1> {"test_one"} </RouterButton<AppRoute>>
+                <RouterButton<AppRoute> route=AppRoute::Imihu> {"test_two"} </RouterButton<AppRoute>>
+                <RouterButton<AppRoute> route=AppRoute::Index> {"/"} </RouterButton<AppRoute>>
+                <Router<AppRoute, ()>
                     render = Router::render(|switch: AppRoute| {
                         match switch {
-                            AppRoute::Index => html! {
-                                <div>{ "test router" }</div>
-                            },
-                            AppRoute::Test => html! {
+                            AppRoute::Imihu => html! {
                                 <Button
-                                    label="testlabel"
+                                    label="testlabel2"
                                     value="aaa"
                                     // onclick=self.link.callback(|_| Msg::AddOne)
                                 />
                             },
+                            AppRoute::Test1 => html! {
+                                <Button
+                                    label="testlabel1"
+                                    value="aaa"
+                                    // onclick=self.link.callback(|_| Msg::AddOne)
+                                />
+                            },
+                            AppRoute::Index => html! {
+                                <div>{ "test router" }</div>
+                            },
                         }
                     })
                 />
-            </>
+            </div>
         }
     }
 }
