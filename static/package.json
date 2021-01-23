@@ -1,0 +1,15 @@
+{
+  "name": "yew-geister",
+  "collaborators": [
+    "d.sato <neuralpocket@google.com>"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "wasm_bg.wasm",
+    "wasm.js",
+    "wasm.d.ts"
+  ],
+  "module": "wasm.js",
+  "types": "wasm.d.ts",
+  "sideEffects": false
+}

@@ -28,11 +28,11 @@ impl Component for Button {
         true
     }
 
-    fn change(&mut self, _props: Self::Properties) -> ShouldRender {
+    fn change(&mut self, props: Self::Properties) -> ShouldRender {
         // Should only return "true" if new properties are different to
         // previously received properties.
         // This component has no properties so we will always return "false".
-        false
+        true
     }
 
     fn view(&self) -> Html {

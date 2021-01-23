@@ -7,6 +7,8 @@ use yew_router::{prelude::*, Switch};
 
 mod components;
 use components::atoms::button::Button;
+use components::templates::top_template::TopTemplate;
+
 mod switch;
 use switch::AppRoute;
 
@@ -30,17 +32,18 @@ impl Component for Model {
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
-        match msg {
-            Msg::AddOne => self.value += 1
-        }
-        true
+        unimplemented!()
+        // match msg {
+        //     Msg::AddOne => self.value += 1
+        // }
+        // true
     }
 
     fn change(&mut self, _props: Self::Properties) -> ShouldRender {
         // Should only return "true" if new properties are different to
         // previously received properties.
         // This component has no properties so we will always return "false".
-        false
+        true
     }
 
     fn view(&self) -> Html {
@@ -49,9 +52,10 @@ impl Component for Model {
         html! {
             // <div>
             <div>
-                <RouterButton<AppRoute> route=AppRoute::Test1> {"test_one"} </RouterButton<AppRoute>>
-                <RouterButton<AppRoute> route=AppRoute::Imihu> {"test_two"} </RouterButton<AppRoute>>
+                <RouterButton<AppRoute> classes="btn" route=AppRoute::Test1> {"サンプル"} </RouterButton<AppRoute>>
+                <RouterButton<AppRoute> classes="btn btn--text" route=AppRoute::Imihu> {"test_two"} </RouterButton<AppRoute>>
                 <RouterButton<AppRoute> route=AppRoute::Index> {"/"} </RouterButton<AppRoute>>
+                <input type="text" class="text-field" />
                 <Router<AppRoute, ()>
                     render = Router::render(|switch: AppRoute| {
                         match switch {
@@ -63,14 +67,10 @@ impl Component for Model {
                                 />
                             },
                             AppRoute::Test1 => html! {
-                                <Button
-                                    label="testlabel1"
-                                    value="aaa"
-                                    // onclick=self.link.callback(|_| Msg::AddOne)
-                                />
+                                <div>{ "あああああ" }</div>
                             },
                             AppRoute::Index => html! {
-                                <div>{ "test router" }</div>
+                                <TopTemplate />
                             },
                         }
                     })
