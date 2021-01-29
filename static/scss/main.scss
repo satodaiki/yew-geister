@@ -2,8 +2,10 @@
 
 @import "color";
 @import "fonts";
+@import "mixins";
 @import "components";
 
 body {
     font-family: 'Makinas-4-Flat',arial,sans-serif;
+    color: $main-color;
 }

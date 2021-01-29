@@ -1,0 +1,38 @@
+.icon {
+    $block: &;
+
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__img {
+        height: 75px;
+
+        path {
+            fill: $main-color;
+        }
+
+        &--blue {
+            path {
+                fill: $sub-color-blue;
+            }
+        }
+
+        &--red {
+            path {
+                fill: $sub-color-red;
+            }
+        }
+    }
+
+    &--small {
+        width: 40px;
+        height: 40px;
+
+        #{$block}__img {
+            height: 25px;
+        }
+    }
+}

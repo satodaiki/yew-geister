@@ -1,0 +1,28 @@
+.game-info {
+    margin-top: 100px;
+
+    &__player {
+        display: flex;
+        justify-content: center;
+
+        &__name {
+            display: inline-block;
+            margin-right: 30px;
+        }
+        &__text-field {
+            display: inline-block;
+        }
+    }
+
+    &__battle-select {
+        margin-top: 100px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__twitter {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+    }
+}

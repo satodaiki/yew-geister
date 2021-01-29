@@ -1,0 +1,16 @@
+.list {
+    display: inline-block;
+    &__container {
+        display: flex;
+
+        &__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+        }
+        &__item {
+            display: inline-block;
+        }
+    }
+}

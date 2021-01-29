@@ -47,35 +47,30 @@ impl Component for Model {
     }
 
     fn view(&self) -> Html {
-        // type Anchor = RouterAnchor<AppRoute>;
-    
         html! {
-            // <div>
-            <div>
-                <RouterButton<AppRoute> classes="btn" route=AppRoute::Test1> {"サンプル"} </RouterButton<AppRoute>>
-                <RouterButton<AppRoute> classes="btn btn--text" route=AppRoute::Imihu> {"test_two"} </RouterButton<AppRoute>>
-                <RouterButton<AppRoute> route=AppRoute::Index> {"/"} </RouterButton<AppRoute>>
-                <input type="text" class="text-field" />
-                <Router<AppRoute, ()>
-                    render = Router::render(|switch: AppRoute| {
-                        match switch {
-                            AppRoute::Imihu => html! {
-                                <Button
-                                    label="testlabel2"
-                                    value="aaa"
-                                    // onclick=self.link.callback(|_| Msg::AddOne)
-                                />
-                            },
-                            AppRoute::Test1 => html! {
-                                <div>{ "あああああ" }</div>
-                            },
-                            AppRoute::Index => html! {
-                                <TopTemplate />
-                            },
-                        }
-                    })
-                />
-            </div>
+            <>  
+                <div class="app">
+                    <Router<AppRoute, ()>
+                        render = Router::render(|switch: AppRoute| {
+                            match switch {
+                                AppRoute::Imihu => html! {
+                                    <Button
+                                        label="testlabel2"
+                                        value="aaa"
+                                        // onclick=self.link.callback(|_| Msg::AddOne)
+                                    />
+                                },
+                                AppRoute::Test1 => html! {
+                                    <div>{ "あああああ" }</div>
+                                },
+                                AppRoute::Index => html! {
+                                    <TopTemplate />
+                                },
+                            }
+                        })
+                    />
+                </div>
+            </>
         }
     }
 }
